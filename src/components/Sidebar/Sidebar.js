@@ -22,22 +22,25 @@ const Sidebar = (props) => {
 
   //Updates Header Text
   useEffect(() => {
-    isSidebarOpen
-      ? setTimeout(() => setHeader(sidebarHeader.fullName), 200)
-      : setHeader(sidebarHeader.shortName);
-  }, [isSidebarOpen, sidebarHeader]);
-  //Updates Header Icon
-  useEffect(() => {
-    isSidebarOpen
-      ? setTimeout(() => setHeaderIcon(sidebarHeader.closeIcon), 200)
-      : setHeaderIcon(sidebarHeader.openIcon);
+    //A mess
+    function headerOpen() {
+      setHeader(sidebarHeader.fullName);
+      setHeaderIcon(sidebarHeader.closeIcon);
+    }
+
+    function headerClose() {
+      setHeader(sidebarHeader.shortName);
+      setHeaderIcon(sidebarHeader.openIcon);
+    }
+
+    isSidebarOpen ? headerOpen() : headerClose();
   }, [isSidebarOpen, sidebarHeader]);
 
   //Updates sidebar state to collapse or open
   useEffect(() => {
     const updateWindowWidth = () => {
       //Choosing 1280 here just as a measure of laptop screen width
-      if (window.innerWidth < 1280 && isSidebarOpen) setSidebarState(false);
+      if (window.innerWidth < 1280) setSidebarState(false);
       else setSidebarState(true);
     };
     window.addEventListener("resize", updateWindowWidth);

@@ -11,11 +11,29 @@ export default function IssueDetail(props) {
   return (
     <div>
       <h1>{props.title}</h1>
-      <Container>
-        <Column style={{ width: "75%", marginRight: "5%" }}>
+      <Container
+        style={{
+          minWidth: "50vh",
+          maxWidth: "90vh",
+          maxHeight: "70vh",
+          overflow: "auto",
+        }}
+      >
+        <Column
+          style={{
+            height: "100%",
+            width: "70ch",
+            marginTop: "1%",
+            paddingLeft: "0.25%",
+            marginRight: "5%",
+            fontSize: "1.1em",
+            lineHeight: "1.25em",
+            overflowY: "scroll",
+          }}
+        >
           {props.description}
         </Column>
-        <Column>
+        <Column style={{ overflow: "hidden" }}>
           Submitted by:
           <div style={{ display: "flex" }}>
             <TableProfilePicture src={props.submitter.profile_picture} />
@@ -35,7 +53,7 @@ export default function IssueDetail(props) {
           <Priority>{props.priority}</Priority>
           <br />
           Assigned to:
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", marginTop: "1%" }}>
             {props.assignees.map((item, id) => (
               <>
                 <TableProfilePicture key={id} src={item.profile_picture} />

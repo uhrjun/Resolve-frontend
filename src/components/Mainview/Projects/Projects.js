@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { ModalProvider } from "styled-react-modal";
+import Modal from "../../../Atomics/Modal";
 import axiosInstance from "../../../apis/projects.instance";
 import NewProjectForm from "./NewProject";
 import * as styled from "./Projects.styles";
 
 function ProjectList() {
   const [projects, setProjects] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleIsModalOpen = () => setIsModalOpen(!isModalOpen);
   let history = useHistory();
 
   useEffect(() => {
@@ -24,7 +27,7 @@ function ProjectList() {
   }, []);
   console.log(projects);
   return (
-    <ModalProvider>
+    <>
       <NewProjectForm />
       <styled.ProjectsContainer>
         {projects.map((project) => (
@@ -39,7 +42,7 @@ function ProjectList() {
           </Link>
         ))}
       </styled.ProjectsContainer>
-    </ModalProvider>
+    </>
   );
 }
 

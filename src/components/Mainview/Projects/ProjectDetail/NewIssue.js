@@ -69,7 +69,7 @@ export default function NewIssueForm() {
       });
   }
 
-  const priority = [
+  let priority = [
     { value: "High", label: "High" },
     { value: "Medium", label: "Medium" },
     { value: "Low", label: "Low" },
@@ -83,12 +83,12 @@ export default function NewIssueForm() {
     return { value: member.id, label: member.username };
   });
 
-  const initialValues = {
+  let initialValues = {
     title: "",
     description: "",
-    priority: null,
-    assignees: [],
+    priority: "Low",
     labels: [],
+    assignees: [],
   };
 
   const validationSchema = Yup.object().shape({
@@ -98,6 +98,7 @@ export default function NewIssueForm() {
   });
 
   const onSubmit = (values) => {
+    createIssue(values);
     console.log(values);
   };
 
@@ -202,6 +203,7 @@ export default function NewIssueForm() {
                   />
                 )}
               />
+              <form.SubmitButton type="submit">Create</form.SubmitButton>
             </Form>
           </Formik>
         </Modal>

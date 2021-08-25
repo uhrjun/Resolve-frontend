@@ -1,7 +1,6 @@
 import React from "react";
 import "./Global.css";
 import reportWebVitals from "./reportWebVitals";
-import Modal from "react-modal";
 
 import ReactDOM from "react-dom";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
@@ -10,8 +9,6 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 import App from "./App";
 import UserForm from "./components/UserForm/UserForm";
 import ProtectedRoute from "./utils/Protected.routes";
-
-Modal.setAppElement("#root");
 
 ReactDOM.render(
   <React.StrictMode>

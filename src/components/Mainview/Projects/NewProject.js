@@ -7,6 +7,7 @@ import * as form from "../../../Atomics/Form";
 import { Input, Label } from "../../../Atomics/Styles";
 import Modal from "../../../Atomics/Modal";
 import { FiPlus } from "react-icons/fi";
+
 export default function NewProjectForm() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleIsModalOpen = () => setIsModalOpen(!isModalOpen);

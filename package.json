@@ -47,6 +47,5 @@
   },
   "devDependencies": {
     "react-color": "^2.19.3"
-  },
-  "peerDependencies": {}
+  }
 }

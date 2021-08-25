@@ -9,7 +9,7 @@ import axiosInstance from "../../../../apis/projects.instance";
 import * as form from "../../../../Atomics/Form";
 import Modal from "../../../../Atomics/Modal";
 import { SecondaryButton } from "../../../../Atomics/Styles";
-import { Label } from "../../../../Atomics/Styles";
+import { issueLabel } from "../../../../Atomics/Table";
 
 export default function Labels() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -92,9 +92,20 @@ export default function Labels() {
         justifyContent: "space-between",
       }}
     >
-      <Label key={label.id} style={{ backgroundColor: label.color }}>
+      <div
+        key={label.id}
+        style={{
+          backgroundColor: label.color,
+          display: "inline",
+          padding: "0.25em 0.4em 0.25em 0.4em",
+          textAlign: "center",
+          borderRadius: "5px",
+          fontWeight: "600",
+          color: "rgba(0, 0, 0, 0.55)",
+        }}
+      >
         {label.name}
-      </Label>
+      </div>
       <FiDelete
         style={{ fontSize: "24px", color: "red", cursor: "pointer" }}
         onClick={() => {

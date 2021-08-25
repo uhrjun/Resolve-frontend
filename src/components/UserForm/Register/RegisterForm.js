@@ -7,7 +7,6 @@ import Modal from "../../../Atomics/Modal";
 
 //Styles
 import * as styled from "./RegisterForm.styles";
-import modalStyle from "../../../Atomics/Modal";
 import { Input, SecondaryButton, Label } from "../../../Atomics/Styles";
 
 export default function RegisterForm() {
